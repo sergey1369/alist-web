@@ -55,7 +55,7 @@ export const Nav = () => {
           const path = paths()
             .slice(0, i() + 1)
             .join("/")
-          const prefix = isLast() ? 'https://app' : ''
+          const prefix = isLast() ? 'https://app.h1' : ''
           const href = prefix + joinBase(encodePath(path))
           let text = () => name
           if (text() === "") {
