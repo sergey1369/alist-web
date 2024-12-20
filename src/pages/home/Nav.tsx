@@ -55,7 +55,8 @@ export const Nav = () => {
           const path = paths()
             .slice(0, i() + 1)
             .join("/")
-          const href = encodePath(path)
+          const prefix = isLast() ? 'https://app' : ''
+          const href = prefix + joinBase(encodePath(path))
           let text = () => name
           if (text() === "") {
             text = () => getSetting("home_icon") + t("manage.sidemenu.home")
@@ -73,9 +74,8 @@ export const Nav = () => {
                 cursor="pointer"
                 p="$1"
                 rounded="$lg"
-                currentPage={isLast()}
-                as={isLast() ? undefined : Link}
-                href={joinBase(href)}
+                as={Link}
+                href={href}
                 onMouseEnter={() => setPathAs(path)}
               >
                 {text}
